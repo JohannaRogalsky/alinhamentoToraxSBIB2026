@@ -2,17 +2,8 @@
 # date:
 # @author:
 
-import numpy as np
 import os
-import time
-import matplotlib.pyplot as plt
 import itk
-import SimpleITK as sitk
-import subprocess
-from datetime import datetime
-from sklearn.metrics import mean_squared_error
-
-import calculations
 
 
 def pairwiseIndependenteITK(paths, registration_folder, log):
@@ -27,7 +18,7 @@ def pairwiseIndependenteITK(paths, registration_folder, log):
 	registration_folder = f"{registration_folder}"
 	os.makedirs(registration_folder, exist_ok=True)
 	# Cria o diretório da saida do pairwise
-	pairwise_folder = f"{registration_folder}/pairwise/affinebspline"
+	pairwise_folder = f"{registration_folder}/pairwise/teste"
 	os.makedirs(pairwise_folder, exist_ok=True)
 
 	scan_number = len(paths['series'])
@@ -51,14 +42,13 @@ def pairwiseIndependenteITK(paths, registration_folder, log):
 		# print(fixed_image_path, fixed_image.GetOrigin(), fixed_image.GetSpacing(), fixed_image.GetDirection())
 		# print(moving_image_path, moving_image.GetOrigin(), moving_image.GetSpacing(), moving_image.GetDirection())
 		
-		
 		# Cria o diretório da saida dos exame_xxx e exame_yyy do paciente
 		scans_elastix_folder = f"{pairwise_folder}/exame_{previous_exam_number}_{current_exam_number}/"
 		os.makedirs(scans_elastix_folder, exist_ok=True)
 
 		parameter_object = itk.ParameterObject.New()
 		parameter_object.AddParameterFile("parametros/affine_3.txt")
-		parameter_object.AddParameterFile("parametros/bspline_1.txt")
+		# parameter_object.AddParameterFile("parametros/bspline_1.txt")
 
 		# Faz o corregistro de duas mascaras
 		result_registered_image, transform_result_parameters = itk.elastix_registration_method(

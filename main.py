@@ -2,13 +2,10 @@
 # date:
 # @author:
 
-import os
 import json
 import time
-import utils
 import dataset as data
 import registration as register
-import calculations as calc
 
 
 if __name__ == '__main__':
@@ -22,30 +19,15 @@ if __name__ == '__main__':
 		config = json.load(f)
 
 	# Extrai parâmetros de configuração
-	maps_folder = config['maps_folder']
-	root_folder = config['original_root_folder_home']
 	mhd_folder = config['conv_root_folder_home']
 	lung_segmentation_folder = config["lung_segmentation_folder_home"]
 	image_registration_folder = config["image_registration_folder_home"]
 	progress_log_file = "progress.log"
 
-
 	start = time.time()
 
 	progress_log = []
 	progress_log.append(f"#{'=' * 134}#")
-
-	# anon_patient_id = ""
-	# patient_id = ""
-	# filepath = f"{maps_folder}/dicom_map_{anon_patient_id}.json"
-	# # print (filepath)
-	# if os.path.isfile (filepath):
-	# 	with open(filepath, 'r') as file:
-	# 		patient_data = json.load(file)
-	# 	# print(patient_data)
-	# 	patient_paths = data.patientSeriesConvCalcMask(patient_id, patient_data, root_folder, mhd_folder, lung_segmentation_folder, thorax_segmentation_folder, progress_log)
-	# quit()
-
 
 	patient_paths = data.patientSeriesMaskPaths(mhd_folder, lung_segmentation_folder, progress_log)
 	# Faz os alinhamentos

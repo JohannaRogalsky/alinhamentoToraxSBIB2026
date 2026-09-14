@@ -1,9 +1,6 @@
 {
-	"original_root_folder_home": "/media/johanna/SanDisk1/jerogalsky-2024",
 	"conv_root_folder_home": "./mhdScans",
 	"lung_segmentation_folder_home": "./segmentacaoLung",
 	"thorax_segmentation_folder_home": "./segmentacaoThorax",
-	"image_registration_folder_home": "./registeredScans",
-
-	"maps_folder": "patientsMaps"
+	"image_registration_folder_home": "./registeredScans"
 }
