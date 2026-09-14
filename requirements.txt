@@ -1,0 +1,16 @@
+# Lembrarde executar antes de instalar
+# python3 -m venv pipeline-env
+# source pipeline-env/bin/activate
+# pip install --upgrade pip setuptools wheel
+# pip install -r requirements.txt
+
+## Dependências
+numpy
+pydicom
+
+# corregistro
+SimpleITK
+SimpleITK-SimpleElastix
+itk
+itk-elastix
+opencv-python

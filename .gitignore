@@ -1,0 +1,8 @@
+patientsMaps
+registeredScans
+conversion.py
+segmentation.py
+progress.log
+utils.py
+pipeline-env
+*pycache*
