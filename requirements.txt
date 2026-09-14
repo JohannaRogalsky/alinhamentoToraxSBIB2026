@@ -6,11 +6,9 @@
 
 ## Dependências
 numpy
-pydicom
 
 # corregistro
 SimpleITK
 SimpleITK-SimpleElastix
 itk
 itk-elastix
-opencv-python

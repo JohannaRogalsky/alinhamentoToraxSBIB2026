@@ -1,0 +1,103 @@
+// *********************
+// * ImageTypes
+// *********************
+(FixedInternalImagePixelType "float")
+(FixedImageDimension 3)
+(MovingInternalImagePixelType "float")
+(MovingImageDimension 3)
+(NumberOfResolutions 1)
+
+// *********************
+// * Components
+// *********************
+(Registration "MultiResolutionRegistration")
+(FixedImagePyramid "FixedSmoothingImagePyramid")
+(MovingImagePyramid "MovingSmoothingImagePyramid")
+(Interpolator "LinearInterpolator")
+(Metric "AdvancedNormalizedCorrelation")
+(Optimizer "AdaptiveStochasticGradientDescent")
+(ResampleInterpolator "FinalBSplineInterpolator")
+(Resampler "DefaultResampler")
+(Transform "AffineTransform")
+(RestrictParameters 1 1 1   0 0 0   1 1 1   1 1 1)
+
+// *********************
+// * Optimizer settings
+// *********************
+(NumberOfSpatialSamples 2000 2000 2000 2000)
+(MaximumNumberOfIterations 2000 2000 2000 2000)
+(MaximumNumberOfSamplingAttempts 50)
+(AutomaticParameterEstimation "true")
+(UseAdaptiveStepSizes "true")
+(MaximumStepLength 1)
+(MaximumStepLengthRatio 1)
+(SP_A 20.0)
+(SigmoidInitialTime 1.0)
+(NumberOfGradientMeasurements 0)
+(NumberOfJacobianMeasurements 1344)
+(NumberOfSamplesForExactGradient 100000)
+(ASGDParameterEstimationMethod "Original")
+
+// *********************
+// * Transform settings
+// *********************
+(HowToCombineTransforms "Compose")
+(BSplineTransformSplineOrder 3)
+(FinalGridSpacingInPhysicalUnits 13.0 13.0 13.0 2.0)
+(GridSpacingSchedule 8.0 8.0 8.0 4.0 4.0 4.0 2.0 2.0 2.0 1.0 1.0 1.0)
+(UseCyclicTransform "false")
+//(AutomaticTransformInitialization "true")
+
+// *********************
+// * Pyramid settings
+// *********************
+(FixedImagePyramidSchedule 8 8 8 4 4 4 2 2 2 1 1 1)
+(MovingImagePyramidSchedule 8 8 8 4 4 4 2 2 2 1 1 1)
+
+// *********************
+// * Sampler parameters
+// *********************
+// The variance metric is allowed to get random samples, the penalty term isn't,
+// because of the langrage multipliers, which should correspond to the same
+// sample locations in every iteration
+(ImageSampler "Random")
+(UseRandomSampleRegion "false")
+(CheckNumberOfSamples "false")
+(NewSamplesEveryIteration "true")
+
+// *********************
+// * Interpolator settings
+// *********************
+(BSplineInterpolationOrder 1)
+
+// *********************
+// * Metric settings
+// *********************
+(UseMultiThreadingForMetrics "true")
+(UseNormalization "false")
+
+// *********************
+// * Miscellaneous settings
+// *********************
+(NumberOfSamplesForSelfHessian 100000)
+(SelfHessianSmoothingSigma 1)
+(SelfHessianNoiseRange 1)
+(MaxBandCovSize 192)
+(NumberOfBandStructureSamples 10)
+(UseConstantStep "false")
+(SigmoidScaleFactor 0.1)
+(ErodeFixedMask "false")
+(ErodeMovingMask "false")
+
+// *********************
+// * Output settings
+// *********************
+(WriteTransformParametersEachIteration "false" )
+(WriteTransformParametersEachResolution "true" )
+(WriteResultImageAfterEachResolution "false")
+(ResultImageFormat "mhd")
+(WriteResultImage "true" )
+(CompressResultImage "true" )
+(ShowExactMetricValue "false" )
+(UseDirectionCosines "true")
+(DefaultPixelValue 0)
