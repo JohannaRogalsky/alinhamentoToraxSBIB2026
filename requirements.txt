@@ -7,6 +7,10 @@
 ## Dependências
 numpy
 
+# para visualização
+matplotlib
+PyQt5
+
 # corregistro
 SimpleITK
 SimpleITK-SimpleElastix
